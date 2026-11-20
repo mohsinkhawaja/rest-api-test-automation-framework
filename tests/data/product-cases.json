@@ -1,0 +1,168 @@
+[
+  {
+    "id": "P-101",
+    "description": "minimum-valid",
+    "overrides": {
+      "sku": "A-1",
+      "name": "A",
+      "price_cents": 1,
+      "stock": 0
+    },
+    "status": 201
+  },
+  {
+    "id": "P-102",
+    "description": "maximum-valid",
+    "overrides": {
+      "sku": "AAAAAAAAAAAAAAAAAAAAAAAA",
+      "name": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "price_cents": 1000000,
+      "stock": 10000
+    },
+    "status": 201
+  },
+  {
+    "id": "P-103",
+    "description": "sku-empty",
+    "overrides": {
+      "sku": ""
+    },
+    "status": 422
+  },
+  {
+    "id": "P-104",
+    "description": "sku-below-min",
+    "overrides": {
+      "sku": "AB"
+    },
+    "status": 422
+  },
+  {
+    "id": "P-105",
+    "description": "sku-above-max",
+    "overrides": {
+      "sku": "AAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "status": 422
+  },
+  {
+    "id": "P-106",
+    "description": "sku-lowercase",
+    "overrides": {
+      "sku": "a-1"
+    },
+    "status": 422
+  },
+  {
+    "id": "P-107",
+    "description": "sku-illegal-character",
+    "overrides": {
+      "sku": "A/1"
+    },
+    "status": 422
+  },
+  {
+    "id": "P-108",
+    "description": "name-empty",
+    "overrides": {
+      "name": ""
+    },
+    "status": 422
+  },
+  {
+    "id": "P-109",
+    "description": "name-whitespace",
+    "overrides": {
+      "name": "   "
+    },
+    "status": 422
+  },
+  {
+    "id": "P-110",
+    "description": "name-above-max",
+    "overrides": {
+      "name": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "status": 422
+  },
+  {
+    "id": "P-111",
+    "description": "price-below-min",
+    "overrides": {
+      "price_cents": 0
+    },
+    "status": 422
+  },
+  {
+    "id": "P-112",
+    "description": "price-above-max",
+    "overrides": {
+      "price_cents": 1000001
+    },
+    "status": 422
+  },
+  {
+    "id": "P-113",
+    "description": "price-decimal",
+    "overrides": {
+      "price_cents": 2.5
+    },
+    "status": 422
+  },
+  {
+    "id": "P-114",
+    "description": "price-numeric-string",
+    "overrides": {
+      "price_cents": "2499"
+    },
+    "status": 422
+  },
+  {
+    "id": "P-115",
+    "description": "price-bool",
+    "overrides": {
+      "price_cents": true
+    },
+    "status": 422
+  },
+  {
+    "id": "P-116",
+    "description": "stock-below-min",
+    "overrides": {
+      "stock": -1
+    },
+    "status": 422
+  },
+  {
+    "id": "P-117",
+    "description": "stock-above-max",
+    "overrides": {
+      "stock": 10001
+    },
+    "status": 422
+  },
+  {
+    "id": "P-118",
+    "description": "stock-null",
+    "overrides": {
+      "stock": null
+    },
+    "status": 422
+  },
+  {
+    "id": "P-119",
+    "description": "unknown-field",
+    "overrides": {
+      "currency": "USD"
+    },
+    "status": 422
+  },
+  {
+    "id": "P-120",
+    "description": "trim-name",
+    "overrides": {
+      "name": "  Test cable  "
+    },
+    "status": 201
+  }
+]

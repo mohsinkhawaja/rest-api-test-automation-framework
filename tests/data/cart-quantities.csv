@@ -1,0 +1,8 @@
+id,description,quantity,stock,status,error
+C-101,minimum,1,20,201,
+C-102,maximum,20,20,201,
+C-103,one-below-minimum,0,20,422,
+C-104,one-above-maximum,21,30,422,
+C-105,exact-stock,4,4,201,
+C-106,above-stock,5,4,409,insufficient_stock
+C-107,no-stock,1,0,409,insufficient_stock
