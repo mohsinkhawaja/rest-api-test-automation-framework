@@ -12,5 +12,6 @@ The target is version 1 of the mock commerce API. Test requests run against isol
 | Pagination | Boundary values | Limit 1–100, offset at least 0, stable insertion order, empty page at the end. | Pagination tests |
 | Cart price snapshots | State transition | A product price update leaves an existing quote intact. A valid PUT reprices. Failed replacement leaves the old cart intact. | Snapshot and replacement test |
 | Service and contract | Smoke | Health is OK and the OpenAPI paths advertise expected CRUD methods. | Health and OpenAPI test |
+| Split service behavior | Integration and fault isolation | Cart requests price against the catalog over HTTP. Missing catalog products return 404. When the catalog goes offline, cart writes return 503 and preserve existing data. | Two split service tests |
 
 Run the whole suite when changing a contract or domain rule. Separate test cases should fail with the API response or state involved. When filing a defect, record the case ID, commit, runtime, method/path, synthetic input, expected status/body, actual status/body, and related CI artifact.

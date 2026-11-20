@@ -1,4 +1,5 @@
 from threading import RLock
+from typing import Protocol
 from uuid import UUID, uuid4
 
 from .contracts import Cart, CartInput, CartItem, Product, ProductInput, ProductPage
@@ -8,6 +9,10 @@ class DomainError(Exception):
     def __init__(self, code: str, message: str):
         super().__init__(message)
         self.code = code
+
+
+class ProductSnapshots(Protocol):
+    def snapshot(self, product_ids: list[UUID]) -> dict[UUID, Product]: ...
 
 
 class Catalog:
@@ -68,7 +73,7 @@ class Catalog:
 
 
 class Carts:
-    def __init__(self, catalog: Catalog):
+    def __init__(self, catalog: ProductSnapshots):
         self._catalog = catalog
         self._carts: dict[UUID, Cart] = {}
         self._lock = RLock()
